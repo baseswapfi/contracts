@@ -1,3 +1,4 @@
+import './types';
 import { ChainId } from '@baseswapfi/sdk-core';
 
 export const BASESWAP_CONTRACTS: { [contract: string]: { [chainId in ChainId]?: string } } = {
