@@ -1,7 +1,11 @@
-import './types';
+export * from './types';
 import { ChainId } from '@baseswapfi/sdk-core';
+import { ContractKey } from './types/contract.types';
 
-export const BASESWAP_CONTRACTS: { [contract: string]: { [chainId in ChainId]?: string } } = {
+export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in ChainId]?: string } } = {
+  Timelock: {
+    [ChainId.BASE]: '0x016E71A3e342031f2229F0b7Bf2C5d11fD2713a6',
+  },
   GasOracleL2: {
     [ChainId.BASE]: '0x420000000000000000000000000000000000000F',
     [ChainId.SCROLL]: '0x5300000000000000000000000000000000000002',
@@ -65,9 +69,6 @@ export const BASESWAP_CONTRACTS: { [contract: string]: { [chainId in ChainId]?: 
     [ChainId.BASE]: '0x33446f09E2a70C1C35718903c7c27f97989B33d9',
     [ChainId.BASE_GOERLI]: '0xD3b9f4fe491Ac92AD75B214cfdCb16dc412154E2',
     [ChainId.SCROLL]: '0xA6Fae39901858a6dD51B5068C11348305a031cdF',
-  },
-  MixedRouteQuoterV1: {
-    [ChainId.BASE]: '0xDb7971adc396d7eD3953E9542a8D4baec914B772',
   },
   V3Migrator: {
     [ChainId.BASE]: '0x596C5c71A079BddE96f940649C21a39201d4C47b',
