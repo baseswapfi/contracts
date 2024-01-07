@@ -52,20 +52,21 @@ export interface NFTPoolInterface extends utils.Interface {
     "harvestPositionTo(uint256,address)": FunctionFragment;
     "harvestPositionsTo(uint256[],address)": FunctionFragment;
     "hasDeposits()": FunctionFragment;
-    "initialize(address,address,address,address)": FunctionFragment;
+    "initialize(address,address,address,address,address)": FunctionFragment;
     "initialized()": FunctionFragment;
     "isApprovedForAll(address,address)": FunctionFragment;
     "isUnlocked()": FunctionFragment;
     "lastTokenId()": FunctionFragment;
     "lockPosition(uint256,uint256)": FunctionFragment;
     "master()": FunctionFragment;
-    "mergePositions(uint256[],uint256)": FunctionFragment;
     "name()": FunctionFragment;
     "operator()": FunctionFragment;
     "owner()": FunctionFragment;
     "ownerOf(uint256)": FunctionFragment;
+    "pendingAdditionalRewards(uint256)": FunctionFragment;
     "pendingRewards(uint256)": FunctionFragment;
     "renewLockPosition(uint256)": FunctionFragment;
+    "rewardManager()": FunctionFragment;
     "safeTransferFrom(address,address,uint256)": FunctionFragment;
     "safeTransferFrom(address,address,uint256,bytes)": FunctionFragment;
     "setApprovalForAll(address,bool)": FunctionFragment;
@@ -73,7 +74,7 @@ export interface NFTPoolInterface extends utils.Interface {
     "setEmergencyUnlock(bool)": FunctionFragment;
     "setLockMultiplierSettings(uint256,uint256)": FunctionFragment;
     "setOperator(address)": FunctionFragment;
-    "setUnlockOperator(address,bool)": FunctionFragment;
+    "setRewardManager(address)": FunctionFragment;
     "setXTokenRewardsShare(uint256)": FunctionFragment;
     "supportsInterface(bytes4)": FunctionFragment;
     "symbol()": FunctionFragment;
@@ -121,13 +122,14 @@ export interface NFTPoolInterface extends utils.Interface {
       | "lastTokenId"
       | "lockPosition"
       | "master"
-      | "mergePositions"
       | "name"
       | "operator"
       | "owner"
       | "ownerOf"
+      | "pendingAdditionalRewards"
       | "pendingRewards"
       | "renewLockPosition"
+      | "rewardManager"
       | "safeTransferFrom(address,address,uint256)"
       | "safeTransferFrom(address,address,uint256,bytes)"
       | "setApprovalForAll"
@@ -135,7 +137,7 @@ export interface NFTPoolInterface extends utils.Interface {
       | "setEmergencyUnlock"
       | "setLockMultiplierSettings"
       | "setOperator"
-      | "setUnlockOperator"
+      | "setRewardManager"
       | "setXTokenRewardsShare"
       | "supportsInterface"
       | "symbol"
@@ -243,6 +245,7 @@ export interface NFTPoolInterface extends utils.Interface {
       PromiseOrValue<string>,
       PromiseOrValue<string>,
       PromiseOrValue<string>,
+      PromiseOrValue<string>,
       PromiseOrValue<string>
     ]
   ): string;
@@ -267,15 +270,15 @@ export interface NFTPoolInterface extends utils.Interface {
     values: [PromiseOrValue<BigNumberish>, PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(functionFragment: "master", values?: undefined): string;
-  encodeFunctionData(
-    functionFragment: "mergePositions",
-    values: [PromiseOrValue<BigNumberish>[], PromiseOrValue<BigNumberish>]
-  ): string;
   encodeFunctionData(functionFragment: "name", values?: undefined): string;
   encodeFunctionData(functionFragment: "operator", values?: undefined): string;
   encodeFunctionData(functionFragment: "owner", values?: undefined): string;
   encodeFunctionData(
     functionFragment: "ownerOf",
+    values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "pendingAdditionalRewards",
     values: [PromiseOrValue<BigNumberish>]
   ): string;
   encodeFunctionData(
@@ -285,6 +288,10 @@ export interface NFTPoolInterface extends utils.Interface {
   encodeFunctionData(
     functionFragment: "renewLockPosition",
     values: [PromiseOrValue<BigNumberish>]
+  ): string;
+  encodeFunctionData(
+    functionFragment: "rewardManager",
+    values?: undefined
   ): string;
   encodeFunctionData(
     functionFragment: "safeTransferFrom(address,address,uint256)",
@@ -324,8 +331,8 @@ export interface NFTPoolInterface extends utils.Interface {
     values: [PromiseOrValue<string>]
   ): string;
   encodeFunctionData(
-    functionFragment: "setUnlockOperator",
-    values: [PromiseOrValue<string>, PromiseOrValue<boolean>]
+    functionFragment: "setRewardManager",
+    values: [PromiseOrValue<string>]
   ): string;
   encodeFunctionData(
     functionFragment: "setXTokenRewardsShare",
@@ -474,20 +481,24 @@ export interface NFTPoolInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(functionFragment: "master", data: BytesLike): Result;
-  decodeFunctionResult(
-    functionFragment: "mergePositions",
-    data: BytesLike
-  ): Result;
   decodeFunctionResult(functionFragment: "name", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "operator", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "owner", data: BytesLike): Result;
   decodeFunctionResult(functionFragment: "ownerOf", data: BytesLike): Result;
+  decodeFunctionResult(
+    functionFragment: "pendingAdditionalRewards",
+    data: BytesLike
+  ): Result;
   decodeFunctionResult(
     functionFragment: "pendingRewards",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
     functionFragment: "renewLockPosition",
+    data: BytesLike
+  ): Result;
+  decodeFunctionResult(
+    functionFragment: "rewardManager",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -519,7 +530,7 @@ export interface NFTPoolInterface extends utils.Interface {
     data: BytesLike
   ): Result;
   decodeFunctionResult(
-    functionFragment: "setUnlockOperator",
+    functionFragment: "setRewardManager",
     data: BytesLike
   ): Result;
   decodeFunctionResult(
@@ -569,18 +580,17 @@ export interface NFTPoolInterface extends utils.Interface {
     "ApprovalForAll(address,address,bool)": EventFragment;
     "CreatePosition(uint256,uint256,uint256)": EventFragment;
     "EmergencyWithdraw(uint256,uint256)": EventFragment;
-    "HarvestPosition(uint256,address,uint256)": EventFragment;
+    "HarvestPosition(uint256,address,uint256,uint256)": EventFragment;
     "LockPosition(uint256,uint256)": EventFragment;
-    "MergePositions(address,uint256[])": EventFragment;
-    "PoolUpdated(uint256,uint256)": EventFragment;
+    "PoolUpdated(uint256,uint256,uint256)": EventFragment;
     "SetBoost(uint256,uint256)": EventFragment;
     "SetBoostMultiplierSettings(uint256,uint256)": EventFragment;
     "SetEmergencyUnlock(bool)": EventFragment;
     "SetLockMultiplierSettings(uint256,uint256)": EventFragment;
     "SetOperator(address)": EventFragment;
+    "SetRewardManager(address)": EventFragment;
     "SetUnlockOperator(address,bool)": EventFragment;
     "SetXTokenRewardsShare(uint256)": EventFragment;
-    "SplitPosition(uint256,uint256,uint256)": EventFragment;
     "Transfer(address,address,uint256)": EventFragment;
     "WithdrawFromPosition(uint256,uint256)": EventFragment;
   };
@@ -592,16 +602,15 @@ export interface NFTPoolInterface extends utils.Interface {
   getEvent(nameOrSignatureOrTopic: "EmergencyWithdraw"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "HarvestPosition"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "LockPosition"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "MergePositions"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "PoolUpdated"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetBoost"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetBoostMultiplierSettings"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetEmergencyUnlock"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetLockMultiplierSettings"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetOperator"): EventFragment;
+  getEvent(nameOrSignatureOrTopic: "SetRewardManager"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetUnlockOperator"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "SetXTokenRewardsShare"): EventFragment;
-  getEvent(nameOrSignatureOrTopic: "SplitPosition"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "Transfer"): EventFragment;
   getEvent(nameOrSignatureOrTopic: "WithdrawFromPosition"): EventFragment;
 }
@@ -670,9 +679,10 @@ export interface HarvestPositionEventObject {
   tokenId: BigNumber;
   to: string;
   pending: BigNumber;
+  pendingWETH: BigNumber;
 }
 export type HarvestPositionEvent = TypedEvent<
-  [BigNumber, string, BigNumber],
+  [BigNumber, string, BigNumber, BigNumber],
   HarvestPositionEventObject
 >;
 
@@ -689,23 +699,13 @@ export type LockPositionEvent = TypedEvent<
 
 export type LockPositionEventFilter = TypedEventFilter<LockPositionEvent>;
 
-export interface MergePositionsEventObject {
-  user: string;
-  tokenIds: BigNumber[];
-}
-export type MergePositionsEvent = TypedEvent<
-  [string, BigNumber[]],
-  MergePositionsEventObject
->;
-
-export type MergePositionsEventFilter = TypedEventFilter<MergePositionsEvent>;
-
 export interface PoolUpdatedEventObject {
   lastRewardTime: BigNumber;
   accRewardsPerShare: BigNumber;
+  accRewardsPerShareWETH: BigNumber;
 }
 export type PoolUpdatedEvent = TypedEvent<
-  [BigNumber, BigNumber],
+  [BigNumber, BigNumber, BigNumber],
   PoolUpdatedEventObject
 >;
 
@@ -764,6 +764,17 @@ export type SetOperatorEvent = TypedEvent<[string], SetOperatorEventObject>;
 
 export type SetOperatorEventFilter = TypedEventFilter<SetOperatorEvent>;
 
+export interface SetRewardManagerEventObject {
+  manager: string;
+}
+export type SetRewardManagerEvent = TypedEvent<
+  [string],
+  SetRewardManagerEventObject
+>;
+
+export type SetRewardManagerEventFilter =
+  TypedEventFilter<SetRewardManagerEvent>;
+
 export interface SetUnlockOperatorEventObject {
   operator: string;
   isAdded: boolean;
@@ -786,18 +797,6 @@ export type SetXTokenRewardsShareEvent = TypedEvent<
 
 export type SetXTokenRewardsShareEventFilter =
   TypedEventFilter<SetXTokenRewardsShareEvent>;
-
-export interface SplitPositionEventObject {
-  tokenId: BigNumber;
-  splitAmount: BigNumber;
-  newTokenId: BigNumber;
-}
-export type SplitPositionEvent = TypedEvent<
-  [BigNumber, BigNumber, BigNumber],
-  SplitPositionEventObject
->;
-
-export type SplitPositionEventFilter = TypedEventFilter<SplitPositionEvent>;
 
 export interface TransferEventObject {
   from: string;
@@ -941,16 +940,20 @@ export interface NFTPool extends BaseContract {
         BigNumber,
         BigNumber,
         BigNumber,
+        BigNumber,
+        BigNumber,
         BigNumber
       ] & {
         lpToken: string;
-        protocolToken: string;
-        xTokenToken: string;
+        arxToken: string;
+        xToken: string;
         lastRewardTime: BigNumber;
         accRewardsPerShare: BigNumber;
+        accRewardsPerShareWETH: BigNumber;
         lpSupply: BigNumber;
         lpSupplyWithMultiplier: BigNumber;
-        allocPoint: BigNumber;
+        allocPointsARX: BigNumber;
+        allocPointsWETH: BigNumber;
       }
     >;
 
@@ -966,6 +969,7 @@ export interface NFTPool extends BaseContract {
         BigNumber,
         BigNumber,
         BigNumber,
+        BigNumber,
         BigNumber
       ] & {
         amount: BigNumber;
@@ -974,6 +978,7 @@ export interface NFTPool extends BaseContract {
         lockDuration: BigNumber;
         lockMultiplier: BigNumber;
         rewardDebt: BigNumber;
+        rewardDebtWETH: BigNumber;
         boostPoints: BigNumber;
         totalMultiplier: BigNumber;
       }
@@ -1000,9 +1005,10 @@ export interface NFTPool extends BaseContract {
 
     initialize(
       master_: PromiseOrValue<string>,
-      protocolToken: PromiseOrValue<string>,
+      arxToken: PromiseOrValue<string>,
       xToken: PromiseOrValue<string>,
       lpToken: PromiseOrValue<string>,
+      manager: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -1026,12 +1032,6 @@ export interface NFTPool extends BaseContract {
 
     master(overrides?: CallOverrides): Promise<[string]>;
 
-    mergePositions(
-      tokenIds: PromiseOrValue<BigNumberish>[],
-      lockDuration: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<ContractTransaction>;
-
     name(overrides?: CallOverrides): Promise<[string]>;
 
     operator(overrides?: CallOverrides): Promise<[string]>;
@@ -1043,15 +1043,26 @@ export interface NFTPool extends BaseContract {
       overrides?: CallOverrides
     ): Promise<[string]>;
 
+    pendingAdditionalRewards(
+      tokenId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<
+      [string[], BigNumber[]] & { tokens: string[]; rewardAmounts: BigNumber[] }
+    >;
+
     pendingRewards(
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
-    ): Promise<[BigNumber]>;
+    ): Promise<
+      [BigNumber, BigNumber] & { mainAmount: BigNumber; wethAmount: BigNumber }
+    >;
 
     renewLockPosition(
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
+
+    rewardManager(overrides?: CallOverrides): Promise<[string]>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: PromiseOrValue<string>,
@@ -1096,9 +1107,8 @@ export interface NFTPool extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
-    setUnlockOperator(
-      _operator: PromiseOrValue<string>,
-      add: PromiseOrValue<boolean>,
+    setRewardManager(
+      manager: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<ContractTransaction>;
 
@@ -1249,16 +1259,20 @@ export interface NFTPool extends BaseContract {
       BigNumber,
       BigNumber,
       BigNumber,
+      BigNumber,
+      BigNumber,
       BigNumber
     ] & {
       lpToken: string;
-      protocolToken: string;
-      xTokenToken: string;
+      arxToken: string;
+      xToken: string;
       lastRewardTime: BigNumber;
       accRewardsPerShare: BigNumber;
+      accRewardsPerShareWETH: BigNumber;
       lpSupply: BigNumber;
       lpSupplyWithMultiplier: BigNumber;
-      allocPoint: BigNumber;
+      allocPointsARX: BigNumber;
+      allocPointsWETH: BigNumber;
     }
   >;
 
@@ -1274,6 +1288,7 @@ export interface NFTPool extends BaseContract {
       BigNumber,
       BigNumber,
       BigNumber,
+      BigNumber,
       BigNumber
     ] & {
       amount: BigNumber;
@@ -1282,6 +1297,7 @@ export interface NFTPool extends BaseContract {
       lockDuration: BigNumber;
       lockMultiplier: BigNumber;
       rewardDebt: BigNumber;
+      rewardDebtWETH: BigNumber;
       boostPoints: BigNumber;
       totalMultiplier: BigNumber;
     }
@@ -1308,9 +1324,10 @@ export interface NFTPool extends BaseContract {
 
   initialize(
     master_: PromiseOrValue<string>,
-    protocolToken: PromiseOrValue<string>,
+    arxToken: PromiseOrValue<string>,
     xToken: PromiseOrValue<string>,
     lpToken: PromiseOrValue<string>,
+    manager: PromiseOrValue<string>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -1334,12 +1351,6 @@ export interface NFTPool extends BaseContract {
 
   master(overrides?: CallOverrides): Promise<string>;
 
-  mergePositions(
-    tokenIds: PromiseOrValue<BigNumberish>[],
-    lockDuration: PromiseOrValue<BigNumberish>,
-    overrides?: Overrides & { from?: PromiseOrValue<string> }
-  ): Promise<ContractTransaction>;
-
   name(overrides?: CallOverrides): Promise<string>;
 
   operator(overrides?: CallOverrides): Promise<string>;
@@ -1351,15 +1362,26 @@ export interface NFTPool extends BaseContract {
     overrides?: CallOverrides
   ): Promise<string>;
 
+  pendingAdditionalRewards(
+    tokenId: PromiseOrValue<BigNumberish>,
+    overrides?: CallOverrides
+  ): Promise<
+    [string[], BigNumber[]] & { tokens: string[]; rewardAmounts: BigNumber[] }
+  >;
+
   pendingRewards(
     tokenId: PromiseOrValue<BigNumberish>,
     overrides?: CallOverrides
-  ): Promise<BigNumber>;
+  ): Promise<
+    [BigNumber, BigNumber] & { mainAmount: BigNumber; wethAmount: BigNumber }
+  >;
 
   renewLockPosition(
     tokenId: PromiseOrValue<BigNumberish>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
+
+  rewardManager(overrides?: CallOverrides): Promise<string>;
 
   "safeTransferFrom(address,address,uint256)"(
     from: PromiseOrValue<string>,
@@ -1404,9 +1426,8 @@ export interface NFTPool extends BaseContract {
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
-  setUnlockOperator(
-    _operator: PromiseOrValue<string>,
-    add: PromiseOrValue<boolean>,
+  setRewardManager(
+    manager: PromiseOrValue<string>,
     overrides?: Overrides & { from?: PromiseOrValue<string> }
   ): Promise<ContractTransaction>;
 
@@ -1557,16 +1578,20 @@ export interface NFTPool extends BaseContract {
         BigNumber,
         BigNumber,
         BigNumber,
+        BigNumber,
+        BigNumber,
         BigNumber
       ] & {
         lpToken: string;
-        protocolToken: string;
-        xTokenToken: string;
+        arxToken: string;
+        xToken: string;
         lastRewardTime: BigNumber;
         accRewardsPerShare: BigNumber;
+        accRewardsPerShareWETH: BigNumber;
         lpSupply: BigNumber;
         lpSupplyWithMultiplier: BigNumber;
-        allocPoint: BigNumber;
+        allocPointsARX: BigNumber;
+        allocPointsWETH: BigNumber;
       }
     >;
 
@@ -1582,6 +1607,7 @@ export interface NFTPool extends BaseContract {
         BigNumber,
         BigNumber,
         BigNumber,
+        BigNumber,
         BigNumber
       ] & {
         amount: BigNumber;
@@ -1590,6 +1616,7 @@ export interface NFTPool extends BaseContract {
         lockDuration: BigNumber;
         lockMultiplier: BigNumber;
         rewardDebt: BigNumber;
+        rewardDebtWETH: BigNumber;
         boostPoints: BigNumber;
         totalMultiplier: BigNumber;
       }
@@ -1616,9 +1643,10 @@ export interface NFTPool extends BaseContract {
 
     initialize(
       master_: PromiseOrValue<string>,
-      protocolToken: PromiseOrValue<string>,
+      arxToken: PromiseOrValue<string>,
       xToken: PromiseOrValue<string>,
       lpToken: PromiseOrValue<string>,
+      manager: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -1642,12 +1670,6 @@ export interface NFTPool extends BaseContract {
 
     master(overrides?: CallOverrides): Promise<string>;
 
-    mergePositions(
-      tokenIds: PromiseOrValue<BigNumberish>[],
-      lockDuration: PromiseOrValue<BigNumberish>,
-      overrides?: CallOverrides
-    ): Promise<void>;
-
     name(overrides?: CallOverrides): Promise<string>;
 
     operator(overrides?: CallOverrides): Promise<string>;
@@ -1659,15 +1681,26 @@ export interface NFTPool extends BaseContract {
       overrides?: CallOverrides
     ): Promise<string>;
 
+    pendingAdditionalRewards(
+      tokenId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<
+      [string[], BigNumber[]] & { tokens: string[]; rewardAmounts: BigNumber[] }
+    >;
+
     pendingRewards(
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
-    ): Promise<BigNumber>;
+    ): Promise<
+      [BigNumber, BigNumber] & { mainAmount: BigNumber; wethAmount: BigNumber }
+    >;
 
     renewLockPosition(
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<void>;
+
+    rewardManager(overrides?: CallOverrides): Promise<string>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: PromiseOrValue<string>,
@@ -1712,9 +1745,8 @@ export interface NFTPool extends BaseContract {
       overrides?: CallOverrides
     ): Promise<void>;
 
-    setUnlockOperator(
-      _operator: PromiseOrValue<string>,
-      add: PromiseOrValue<boolean>,
+    setRewardManager(
+      manager: PromiseOrValue<string>,
       overrides?: CallOverrides
     ): Promise<void>;
 
@@ -1828,15 +1860,17 @@ export interface NFTPool extends BaseContract {
       amount?: null
     ): EmergencyWithdrawEventFilter;
 
-    "HarvestPosition(uint256,address,uint256)"(
+    "HarvestPosition(uint256,address,uint256,uint256)"(
       tokenId?: PromiseOrValue<BigNumberish> | null,
       to?: null,
-      pending?: null
+      pending?: null,
+      pendingWETH?: null
     ): HarvestPositionEventFilter;
     HarvestPosition(
       tokenId?: PromiseOrValue<BigNumberish> | null,
       to?: null,
-      pending?: null
+      pending?: null,
+      pendingWETH?: null
     ): HarvestPositionEventFilter;
 
     "LockPosition(uint256,uint256)"(
@@ -1848,22 +1882,15 @@ export interface NFTPool extends BaseContract {
       lockDuration?: null
     ): LockPositionEventFilter;
 
-    "MergePositions(address,uint256[])"(
-      user?: PromiseOrValue<string> | null,
-      tokenIds?: null
-    ): MergePositionsEventFilter;
-    MergePositions(
-      user?: PromiseOrValue<string> | null,
-      tokenIds?: null
-    ): MergePositionsEventFilter;
-
-    "PoolUpdated(uint256,uint256)"(
+    "PoolUpdated(uint256,uint256,uint256)"(
       lastRewardTime?: null,
-      accRewardsPerShare?: null
+      accRewardsPerShare?: null,
+      accRewardsPerShareWETH?: null
     ): PoolUpdatedEventFilter;
     PoolUpdated(
       lastRewardTime?: null,
-      accRewardsPerShare?: null
+      accRewardsPerShare?: null,
+      accRewardsPerShareWETH?: null
     ): PoolUpdatedEventFilter;
 
     "SetBoost(uint256,uint256)"(
@@ -1901,6 +1928,9 @@ export interface NFTPool extends BaseContract {
     "SetOperator(address)"(operator?: null): SetOperatorEventFilter;
     SetOperator(operator?: null): SetOperatorEventFilter;
 
+    "SetRewardManager(address)"(manager?: null): SetRewardManagerEventFilter;
+    SetRewardManager(manager?: null): SetRewardManagerEventFilter;
+
     "SetUnlockOperator(address,bool)"(
       operator?: null,
       isAdded?: null
@@ -1916,17 +1946,6 @@ export interface NFTPool extends BaseContract {
     SetXTokenRewardsShare(
       xTokenRewardsShare?: null
     ): SetXTokenRewardsShareEventFilter;
-
-    "SplitPosition(uint256,uint256,uint256)"(
-      tokenId?: PromiseOrValue<BigNumberish> | null,
-      splitAmount?: null,
-      newTokenId?: null
-    ): SplitPositionEventFilter;
-    SplitPosition(
-      tokenId?: PromiseOrValue<BigNumberish> | null,
-      splitAmount?: null,
-      newTokenId?: null
-    ): SplitPositionEventFilter;
 
     "Transfer(address,address,uint256)"(
       from?: PromiseOrValue<string> | null,
@@ -2047,9 +2066,10 @@ export interface NFTPool extends BaseContract {
 
     initialize(
       master_: PromiseOrValue<string>,
-      protocolToken: PromiseOrValue<string>,
+      arxToken: PromiseOrValue<string>,
       xToken: PromiseOrValue<string>,
       lpToken: PromiseOrValue<string>,
+      manager: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -2073,12 +2093,6 @@ export interface NFTPool extends BaseContract {
 
     master(overrides?: CallOverrides): Promise<BigNumber>;
 
-    mergePositions(
-      tokenIds: PromiseOrValue<BigNumberish>[],
-      lockDuration: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<BigNumber>;
-
     name(overrides?: CallOverrides): Promise<BigNumber>;
 
     operator(overrides?: CallOverrides): Promise<BigNumber>;
@@ -2086,6 +2100,11 @@ export interface NFTPool extends BaseContract {
     owner(overrides?: CallOverrides): Promise<BigNumber>;
 
     ownerOf(
+      tokenId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<BigNumber>;
+
+    pendingAdditionalRewards(
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<BigNumber>;
@@ -2099,6 +2118,8 @@ export interface NFTPool extends BaseContract {
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
+
+    rewardManager(overrides?: CallOverrides): Promise<BigNumber>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: PromiseOrValue<string>,
@@ -2143,9 +2164,8 @@ export interface NFTPool extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
-    setUnlockOperator(
-      _operator: PromiseOrValue<string>,
-      add: PromiseOrValue<boolean>,
+    setRewardManager(
+      manager: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<BigNumber>;
 
@@ -2313,9 +2333,10 @@ export interface NFTPool extends BaseContract {
 
     initialize(
       master_: PromiseOrValue<string>,
-      protocolToken: PromiseOrValue<string>,
+      arxToken: PromiseOrValue<string>,
       xToken: PromiseOrValue<string>,
       lpToken: PromiseOrValue<string>,
+      manager: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
@@ -2339,12 +2360,6 @@ export interface NFTPool extends BaseContract {
 
     master(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
-    mergePositions(
-      tokenIds: PromiseOrValue<BigNumberish>[],
-      lockDuration: PromiseOrValue<BigNumberish>,
-      overrides?: Overrides & { from?: PromiseOrValue<string> }
-    ): Promise<PopulatedTransaction>;
-
     name(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     operator(overrides?: CallOverrides): Promise<PopulatedTransaction>;
@@ -2352,6 +2367,11 @@ export interface NFTPool extends BaseContract {
     owner(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     ownerOf(
+      tokenId: PromiseOrValue<BigNumberish>,
+      overrides?: CallOverrides
+    ): Promise<PopulatedTransaction>;
+
+    pendingAdditionalRewards(
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: CallOverrides
     ): Promise<PopulatedTransaction>;
@@ -2365,6 +2385,8 @@ export interface NFTPool extends BaseContract {
       tokenId: PromiseOrValue<BigNumberish>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
+
+    rewardManager(overrides?: CallOverrides): Promise<PopulatedTransaction>;
 
     "safeTransferFrom(address,address,uint256)"(
       from: PromiseOrValue<string>,
@@ -2409,9 +2431,8 @@ export interface NFTPool extends BaseContract {
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
-    setUnlockOperator(
-      _operator: PromiseOrValue<string>,
-      add: PromiseOrValue<boolean>,
+    setRewardManager(
+      manager: PromiseOrValue<string>,
       overrides?: Overrides & { from?: PromiseOrValue<string> }
     ): Promise<PopulatedTransaction>;
 
