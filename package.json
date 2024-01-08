@@ -1,8 +1,8 @@
 {
   "name": "@baseswapfi/contracts",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
-  "description": "Baseswap contract address mappings",
+  "description": "Baseswap contracts",
   "author": "0xShoeGazer",
   "module": "dist/baseswap-contracts.esm.js",
   "main": "dist/index.js",
