@@ -10,8 +10,8 @@ import { parseUnits } from 'ethers/lib/utils';
  * @param signer
  * @returns
  */
-export function getNftPoolFactory(chainId: ChainId, signer) {
-  return NFTPoolFactory__factory.connect(getBaseswapContractAddress(chainId, 'NftPoolFactory'), signer);
+export function getNftPoolFactory(chainId: ChainId, signerOrProvider) {
+  return NFTPoolFactory__factory.connect(getBaseswapContractAddress(chainId, 'NftPoolFactory'), signerOrProvider);
 }
 
 /**
@@ -20,12 +20,8 @@ export function getNftPoolFactory(chainId: ChainId, signer) {
  * @param signer
  * @returns
  */
-export function getNftPool(
-  nftPoolAddress: string,
-
-  signer
-) {
-  return NFTPool__factory.connect(nftPoolAddress, signer);
+export function getNftPool(nftPoolAddress: string, signerOrProvider) {
+  return NFTPool__factory.connect(nftPoolAddress, signerOrProvider);
 }
 
 /**
