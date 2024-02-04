@@ -972,10 +972,10 @@
     "@babel/helper-validator-identifier" "^7.22.20"
     to-fast-properties "^2.0.0"
 
-"@baseswapfi/sdk-core@^1.0.30":
-  version "1.0.30"
-  resolved "https://registry.yarnpkg.com/@baseswapfi/sdk-core/-/sdk-core-1.0.30.tgz#1b178e824d9aae1997162aac5f4b06129b750d96"
-  integrity sha512-M1drJGtqnE/7gTEgpBcd83d1n7WsnqJJqL6vO21QrrIkveNVKVulEIWXu320YVxH13ZRz9ahDeYvtTKETjNTQQ==
+"@baseswapfi/sdk-core@^1.0.39":
+  version "1.0.39"
+  resolved "https://registry.yarnpkg.com/@baseswapfi/sdk-core/-/sdk-core-1.0.39.tgz#09cc38989632fbdf1351fd08036e49c5c1a61fbf"
+  integrity sha512-3tNcuzXWBPEUswnGmkeH19nxN7RqNa5H6hffC2+3M6baZ1t+LO7gGkfbHF7aMxT8Im8J6ekGKIN2xmiolKg3Jg==
   dependencies:
     "@ethersproject/abi" "^5.0.12"
     "@ethersproject/address" "^5.0.2"
@@ -6487,6 +6487,7 @@ string-length@^3.1.0:
     strip-ansi "^5.2.0"
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
