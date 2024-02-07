@@ -114,6 +114,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   },
   V3Migrator: {
     [ChainId.BASE]: '0x596C5c71A079BddE96f940649C21a39201d4C47b',
+    [ChainId.MODE]: '0x840367CA2E448b8ae2Fb2f3C865E7C612dDB4233',
   },
   QuoterV2: {
     [ChainId.BASE]: '0x4fDBD73aD4B1DDde594BF05497C15f76308eFfb9',
@@ -136,7 +137,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x4c656A290161CE89538e305075098FE92bDcB5E6',
     [ChainId.SCROLL_SEPOLIA]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9',
     [ChainId.SCROLL]: '0x396F2cA2a470EfC92511fD3e99833d28D38CFf53',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x395e1539c13C7011896AbeCFe9182b05a5d197e9',
     [ChainId.MODE_TESTNET]: '',
   },
   NFTDescriptorLibrary: {
@@ -152,7 +153,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x8fDA3405fbcA054a5a36fCF9b0991C5ef2d6D67b',
     [ChainId.SCROLL_SEPOLIA]: '0x327Df1E6de05895d2ab08513aaDD9313Fe505d86',
     [ChainId.SCROLL]: '0x0321739FafF198f614C93A0EE3d33f3b2B172fe5',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x7D793093d0d13EeE9b3e44d32e27a4601dfa748C',
     [ChainId.MODE_TESTNET]: '',
   },
   Permit2: {
