@@ -144,7 +144,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0xf625015fBc5bBC6253EF7AEA5b0e85Bf8fEC6b2F',
     [ChainId.SCROLL_SEPOLIA]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
     [ChainId.SCROLL]: '0x4Ab974442D6e67c32E40f44BcDC22388F3F16d9e',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x224Af1d73e4bc5B567E352D6e6ac2f08A129D443',
     [ChainId.MODE_TESTNET]: '',
   },
   NonfungibleTokenPositionDescriptor: {
