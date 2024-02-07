@@ -102,7 +102,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x35eE2020dada758d1b8fE89D5D74F61312e9c94E',
     [ChainId.SCROLL_SEPOLIA]: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB',
     [ChainId.SCROLL]: '0x7FFE23bf32053F84C72Dc686f526c584dAF5f8D6',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x322b4A7E3BE14b0c4aED23B7bCC822c01c8e0B5e',
     [ChainId.MODE_TESTNET]: '',
   },
   UniveralRouter: {
@@ -120,7 +120,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x154184eAe9de0dcac56c804Ffee021e7F2B0B2bf',
     [ChainId.SCROLL_SEPOLIA]: '0x6F1a2F63Ea06B475EDBf2E6393406058C12A7910',
     [ChainId.SCROLL]: '0x2ee99Be3c520B7Bd64f51641c3e7Ef28950E03B7',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x7f528589F2d699cD6934D87a2d744CFbEeB09018',
     [ChainId.MODE_TESTNET]: '',
   },
   TickLens: {
@@ -128,7 +128,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x4460e525CAbF58d2E8F742482A0D228641abfAF6',
     [ChainId.SCROLL_SEPOLIA]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
     [ChainId.SCROLL]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x44D00f1d78d489D72402759450aae9Db4485bee3',
     [ChainId.MODE_TESTNET]: '',
   },
   NonfungiblePositionManager: {
