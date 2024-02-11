@@ -1,6 +1,6 @@
 {
   "name": "@baseswapfi/contracts",
-  "version": "1.1.11",
+  "version": "1.1.12",
   "license": "MIT",
   "description": "Baseswap contracts",
   "author": "0xShoeGazer",
@@ -19,7 +19,7 @@
     "prepublishOnly": "npm run build"
   },
   "dependencies": {
-    "@baseswapfi/sdk-core": "^1.0.39",
+    "@baseswapfi/sdk-core": "^1.0.43",
     "@ethersproject/providers": "^5.7.0",
     "ethers": "^5.4.7"
   },

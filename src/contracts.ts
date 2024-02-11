@@ -94,7 +94,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0xd4e13e0451D32bf846a77b7C354c7cf611290CfC',
     [ChainId.SCROLL_SEPOLIA]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720',
     [ChainId.SCROLL]: '0xbF79915e80DE0A361A4F35175BA9bF2e91B10424',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0xD4f08b675270DFD9FedAeA5E6a879a945BE80d1d',
     [ChainId.MODE_TESTNET]: '',
   },
   SwapRouter: {
@@ -102,14 +102,14 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x35eE2020dada758d1b8fE89D5D74F61312e9c94E',
     [ChainId.SCROLL_SEPOLIA]: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB',
     [ChainId.SCROLL]: '0x7FFE23bf32053F84C72Dc686f526c584dAF5f8D6',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x6b818C5D9104BaEC4c1C1Df599527B35bcBB2520',
     [ChainId.MODE_TESTNET]: '',
   },
   UniveralRouter: {
     [ChainId.BASE]: '0x33446f09E2a70C1C35718903c7c27f97989B33d9',
     [ChainId.BASE_GOERLI]: '0xD3b9f4fe491Ac92AD75B214cfdCb16dc412154E2',
     [ChainId.SCROLL]: '0xA6Fae39901858a6dD51B5068C11348305a031cdF',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0xCB3026f0a031b99be7fDb1c0DF06bc62065937e2',
     [ChainId.MODE_TESTNET]: '',
   },
   V3Migrator: {
@@ -120,7 +120,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x154184eAe9de0dcac56c804Ffee021e7F2B0B2bf',
     [ChainId.SCROLL_SEPOLIA]: '0x6F1a2F63Ea06B475EDBf2E6393406058C12A7910',
     [ChainId.SCROLL]: '0x2ee99Be3c520B7Bd64f51641c3e7Ef28950E03B7',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x40c164a5c5022f25Ec41Bb96F6fAc14b15Ce99c1',
     [ChainId.MODE_TESTNET]: '',
   },
   TickLens: {
@@ -128,7 +128,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x4460e525CAbF58d2E8F742482A0D228641abfAF6',
     [ChainId.SCROLL_SEPOLIA]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
     [ChainId.SCROLL]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x62e879c8979694DbC3A4EF1dd324b08Ee3Ac3688',
     [ChainId.MODE_TESTNET]: '',
   },
   NonfungiblePositionManager: {
@@ -136,7 +136,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x4c656A290161CE89538e305075098FE92bDcB5E6',
     [ChainId.SCROLL_SEPOLIA]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9',
     [ChainId.SCROLL]: '0x396F2cA2a470EfC92511fD3e99833d28D38CFf53',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0xd4974B38D5a4Ea2a9FA181Aa52A0336cCe5E12A0',
     [ChainId.MODE_TESTNET]: '',
   },
   NFTDescriptorLibrary: {
@@ -144,7 +144,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0xf625015fBc5bBC6253EF7AEA5b0e85Bf8fEC6b2F',
     [ChainId.SCROLL_SEPOLIA]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
     [ChainId.SCROLL]: '0x4Ab974442D6e67c32E40f44BcDC22388F3F16d9e',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0xc94E9aB330353ff6EeF4AB415f4605616CB998aE',
     [ChainId.MODE_TESTNET]: '',
   },
   NonfungibleTokenPositionDescriptor: {
@@ -152,14 +152,14 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE_GOERLI]: '0x8fDA3405fbcA054a5a36fCF9b0991C5ef2d6D67b',
     [ChainId.SCROLL_SEPOLIA]: '0x327Df1E6de05895d2ab08513aaDD9313Fe505d86',
     [ChainId.SCROLL]: '0x0321739FafF198f614C93A0EE3d33f3b2B172fe5',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x36d1Ab9DDD6b59e8F2c01F8e3E9D0AdEcA0E864d',
     [ChainId.MODE_TESTNET]: '',
   },
   Permit2: {
     [ChainId.BASE]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.BASE_GOERLI]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.SCROLL]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
-    [ChainId.MODE]: '',
+    [ChainId.MODE]: '0x94265f90728993A3f7089049045ceef566A36bB9',
     [ChainId.MODE_TESTNET]: '',
   },
 
