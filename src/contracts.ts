@@ -73,6 +73,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720',
     [ChainId.MODE_TESTNET]: '0x8DFAf055e21B16302DBf00815e5b4d9b6042a4Df',
     [ChainId.OPTIMISM]: '0x2dc0e2aa608532da689e89e237df582b783e552c',
+    [ChainId.SONIC_TESTNET]: '0x74a52eb08d699CD8BE1d42dA4B241d526B8a8285',
   },
 
   Multicall2: {
@@ -81,6 +82,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.SCROLL_SEPOLIA]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0',
     [ChainId.SCROLL]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0',
     [ChainId.OPTIMISM]: '0x2dc0e2aa608532da689e89e237df582b783e552c',
+    [ChainId.SONIC_TESTNET]: '0x74a52eb08d699CD8BE1d42dA4B241d526B8a8285',
   },
   Multicall3: {
     [ChainId.SCROLL]: '0xcA11bde05977b3631167028862bE2a173976CA11',
@@ -92,6 +94,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0x7bb14ed986dae0c8423350a7f1c59a31b3c84509',
     [ChainId.MODE_TESTNET]: '0x30d273e96038cc14d1eedf0aa44e77be9caaa9b2',
     [ChainId.OPTIMISM]: '0x1F98415757620B543A52E61c46B32eB19261F984',
+    [ChainId.SONIC_TESTNET]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0',
   },
 
   // V3
@@ -103,6 +106,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0x6E36FC34eA123044F278d3a9F3819027B21c9c32',
     [ChainId.MODE_TESTNET]: '0xB2ddE46dacFA72Ce778420aAC091A768741F7e71',
     [ChainId.OPTIMISM]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720', // block 124982239
+    [ChainId.SONIC_TESTNET]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720', // block 75266442
   },
   SwapRouter: {
     [ChainId.BASE]: '0x1B8eea9315bE495187D873DA7773a874545D9D48',
@@ -112,6 +116,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0x7107112065dAF2EEedD56B06cdF185f3eFFF516D',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB',
+    [ChainId.SONIC_TESTNET]: '0x6F1a2F63Ea06B475EDBf2E6393406058C12A7910',
   },
   UniveralRouter: {
     [ChainId.BASE]: '0x33446f09E2a70C1C35718903c7c27f97989B33d9',
@@ -131,6 +136,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0xA642c56a9bCd863E52348798b31A8Db2BCdA5aee',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x6F1a2F63Ea06B475EDBf2E6393406058C12A7910',
+    [ChainId.SONIC_TESTNET]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
   },
   TickLens: {
     [ChainId.BASE]: '0x49a3A5cf91DE1b78c43Dc1adD03E8A71f1Ea2e30',
@@ -140,6 +146,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0x62e879c8979694DbC3A4EF1dd324b08Ee3Ac3688',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
+    [ChainId.SONIC_TESTNET]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
   },
   NonfungiblePositionManager: {
     [ChainId.BASE]: '0xDe151D5c92BfAA288Db4B67c21CD55d5826bCc93',
@@ -149,6 +156,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0xcc3726bCc27f232bC1CaAB40853AEa91ae43C216',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9', // block 125278292
+    [ChainId.SONIC_TESTNET]: '0x2B0A43DCcBD7d42c18F6A83F86D1a19fA58d541A', // block 75975300
   },
   NFTDescriptorLibrary: {
     [ChainId.BASE]: '0xC3C7418e738E8B116A89dF0941b13C306bbb0200',
@@ -158,6 +166,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0xc94E9aB330353ff6EeF4AB415f4605616CB998aE',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
+    [ChainId.SONIC_TESTNET]: '0x327Df1E6de05895d2ab08513aaDD9313Fe505d86',
   },
   NonfungibleTokenPositionDescriptor: {
     [ChainId.BASE]: '0x898E49e2cb08C644cE02565f3533eB370F2772Ac',
@@ -167,6 +176,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0x36d1Ab9DDD6b59e8F2c01F8e3E9D0AdEcA0E864d',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x74a52eb08d699CD8BE1d42dA4B241d526B8a8285',
+    [ChainId.SONIC_TESTNET]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9',
   },
   Permit2: {
     [ChainId.BASE]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
@@ -175,6 +185,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0x94265f90728993A3f7089049045ceef566A36bB9',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
+    [ChainId.SONIC_TESTNET]: '',
   },
 
   // Camelot
