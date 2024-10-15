@@ -26,7 +26,8 @@ export type ContractKey =
   | 'NftPoolFactory'
   | 'YieldBooster'
   | 'Dividends'
-  | 'UnsupportedProtocol';
+  | 'UnsupportedProtocol'
+  | 'FeeOnTransferDetector';
 
 export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in ChainId]?: string } } = {
   Timelock: {
@@ -215,7 +216,15 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.SONIC_TESTNET]: '',
     [ChainId.SONEIUM_TESTNET]: '',
   },
-
+  FeeOnTransferDetector: {
+    [ChainId.BASE]: '0x45ede445bf511f14cc4809d81355d4dbf8d97847',
+    [ChainId.BASE_GOERLI]: '0x1222766DA7a1CbCD8451dF214dcD41579a9fb60E',
+    [ChainId.ARBITRUM]: '0x1222766DA7a1CbCD8451dF214dcD41579a9fb60E',
+    [ChainId.MODE]: '0xc09BF50ac5774f0F1a2406a2D08713683a2Bd3b9',
+    [ChainId.OPTIMISM]: '0x96F701640Ff6f1f7541bb9647BFB8c2E0e0d33B0',
+    [ChainId.SONIC_TESTNET]: '0x7FFE23bf32053F84C72Dc686f526c584dAF5f8D6',
+    [ChainId.SONEIUM_TESTNET]: '0xc1e624C810D297FD70eF53B0E08F44FABE468591',
+  },
   // Camelot
   MasterChef: {
     [ChainId.BASE]: '0x6Fc0f134a1F20976377b259687b1C15a5d422B47',
