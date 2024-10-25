@@ -1,35 +1,6 @@
 import { ChainId } from '@baseswapfi/sdk-core';
 
-export type ContractKey =
-  | 'Timelock'
-  | 'GasOracleL2'
-  | 'PancakeFactory'
-  | 'PancakeRouter'
-  | 'PancakeZapV1'
-  | 'PancakeMasterChef'
-  | 'Multicall'
-  | 'Multicall2'
-  | 'Multicall3'
-  | 'UniMultical'
-  | 'UniswapV3Factory'
-  | 'SwapRouter'
-  | 'UniveralRouter'
-  | 'V3Migrator'
-  | 'QuoterV2'
-  | 'TickLens'
-  | 'NonfungiblePositionManager'
-  | 'NFTDescriptorLibrary'
-  | 'NonfungibleTokenPositionDescriptor'
-  | 'Permit2'
-  | 'MasterChef'
-  | 'DummyToken'
-  | 'NftPoolFactory'
-  | 'YieldBooster'
-  | 'Dividends'
-  | 'UnsupportedProtocol'
-  | 'FeeOnTransferDetector';
-
-export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in ChainId]?: string } } = {
+export const CONTRACTS = {
   Timelock: {
     [ChainId.BASE]: '0x016E71A3e342031f2229F0b7Bf2C5d11fD2713a6',
   },
@@ -37,17 +8,16 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE]: '0x420000000000000000000000000000000000000F',
     [ChainId.SCROLL]: '0x5300000000000000000000000000000000000002',
   },
-
-  // V2
+  // PCS V2 thing
   PancakeFactory: {
     [ChainId.BASE]: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB',
     [ChainId.SCROLL]: '0x74a52eb08d699CD8BE1d42dA4B241d526B8a8285',
     [ChainId.BASE_GOERLI]: '0x14db9CFcaE4E7F6971034F0E8e4D9Fc3e54CDafE',
-    [ChainId.MODE]: '0xfb926356baf861c93c3557d7327dbe8734a71891',
+    [ChainId.MODE]: '0xfb926356baf861c93c3557d7327dbe8734a71891', // block 3325219 (first pair block is 3326753)
     [ChainId.MODE_TESTNET]: '0xa26655bab784c9bd9daadaaff2a05a93484bf9c7',
     [ChainId.OPTIMISM]: '0x22505cb4D5d10b2C848A9d75C57eA72A66066D8C', // block 125750368
-    [ChainId.SONEIUM_TESTNET]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0', // block 2737914
     [ChainId.SONIC_TESTNET]: '0x8DFAf055e21B16302DBf00815e5b4d9b6042a4Df', // block 78538686
+    [ChainId.SONEIUM_TESTNET]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0', // block 2737914
   },
   PancakeRouter: {
     [ChainId.BASE]: '0x327Df1E6de05895d2ab08513aaDD9313Fe505d86',
@@ -71,18 +41,23 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   },
   PancakeMasterChef: {
     [ChainId.BASE]: '0x2B0A43DCcBD7d42c18F6A83F86D1a19fA58d541A',
+    [ChainId.SCROLL]: '',
+  },
+  SmartChefFactory: {
+    [ChainId.MODE]: '0xca0409d74fd7016d3065a846d5ee11cab7b2c39c',
   },
 
   Multicall: {
-    [ChainId.BASE]: '0x942a772191A34040121C69bE6caBFEE6312ab641',
-    [ChainId.BASE_GOERLI]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
+    [ChainId.BASE]: '0x942a772191A34040121C69bE6caBFEE6312ab641', // multi 2
+    // [ChainId.BSC]: '0x4Ba82B21658CAE1975Fa26097d87bd48FF270124',
+    [ChainId.ARBITRUM]: '0x842eC2c7D803033Edf55E478F461FC547Bc54EB2', // Arb network provided one
+    [ChainId.BASE_GOERLI]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50', // Actually multi "2", not sure anymore
     [ChainId.SCROLL_SEPOLIA]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0',
     [ChainId.FRAX_TESTNET]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720',
     [ChainId.MODE]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720',
     [ChainId.MODE_TESTNET]: '0x8DFAf055e21B16302DBf00815e5b4d9b6042a4Df',
     [ChainId.OPTIMISM]: '0x2dc0e2aa608532da689e89e237df582b783e552c',
     [ChainId.SONIC_TESTNET]: '0x74a52eb08d699CD8BE1d42dA4B241d526B8a8285',
-    [ChainId.SONEIUM_TESTNET]: '0xB687282AD4Fb8897D5Cd41f3C1A54DeB4cc88625',
   },
 
   Multicall2: {
@@ -92,7 +67,6 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.SCROLL]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0',
     [ChainId.OPTIMISM]: '0x2dc0e2aa608532da689e89e237df582b783e552c',
     [ChainId.SONIC_TESTNET]: '0x74a52eb08d699CD8BE1d42dA4B241d526B8a8285',
-    [ChainId.SONEIUM_TESTNET]: '0xB687282AD4Fb8897D5Cd41f3C1A54DeB4cc88625',
   },
   Multicall3: {
     [ChainId.SCROLL]: '0xcA11bde05977b3631167028862bE2a173976CA11',
@@ -100,22 +74,38 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   UniMultical: {
     [ChainId.BASE]: '0x091e99cb1C49331a94dD62755D168E941AbD0693',
     [ChainId.BASE_GOERLI]: '0xC5F0F11926d6355273cB66fCf6fB7A5CbD78f848',
+    [ChainId.ARBITRUM]: '0x3647c51266cc1610d1318edbdc1129da75db75c5',
+    [ChainId.SCROLL_SEPOLIA]: '',
     [ChainId.SCROLL]: '0x2B0A43DCcBD7d42c18F6A83F86D1a19fA58d541A',
     [ChainId.MODE]: '0x7bb14ed986dae0c8423350a7f1c59a31b3c84509',
     [ChainId.MODE_TESTNET]: '0x30d273e96038cc14d1eedf0aa44e77be9caaa9b2',
-    [ChainId.OPTIMISM]: '0x1F98415757620B543A52E61c46B32eB19261F984',
+    [ChainId.OPTIMISM]: '0x1F98415757620B543A52E61c46B32eB19261F984', // Just using their deployed one
     [ChainId.SONIC_TESTNET]: '0x82995F682dc38b17B99079Cf63DF8d263C6D5eE0',
     [ChainId.SONEIUM_TESTNET]: '0x2B0A43DCcBD7d42c18F6A83F86D1a19fA58d541A',
+  },
+
+  // UNI
+  ArbidexRouterV2: {
+    [ChainId.ARBITRUM]: '0x7238FB45146BD8FcB2c463Dc119A53494be57Aac',
+  },
+  ArbidexRouterV3: {
+    [ChainId.ARBITRUM]: '0xe3dbf9367D2863b638C629a9d4Ca4C949FD7C779',
+  },
+  ArbidexFactoryV2: {
+    [ChainId.ARBITRUM]: '0x1c6e968f2e6c9dec61db874e28589fd5ce3e1f2c',
   },
 
   // V3
   UniswapV3Factory: {
     [ChainId.BASE]: '0x38015D05f4fEC8AFe15D7cc0386a126574e8077B',
     [ChainId.BASE_GOERLI]: '0xd4e13e0451D32bf846a77b7C354c7cf611290CfC',
+    [ChainId.ARBITRUM]: '0x855f2c70cf5cb1d56c15ed309a4dfefb88ed909e', // "Actual" factory. Not "PoolDeployer" though for init hashes
+    // [ChainId.ARBITRUM]: '0xa3792B3678b61001839c404ffcD20EF103473f68', // In sdk-core marked as PoolDeployer in comment there
     [ChainId.SCROLL_SEPOLIA]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720',
     [ChainId.SCROLL]: '0xbF79915e80DE0A361A4F35175BA9bF2e91B10424',
-    [ChainId.MODE]: '0x6E36FC34eA123044F278d3a9F3819027B21c9c32',
-    [ChainId.MODE_TESTNET]: '0xB2ddE46dacFA72Ce778420aAC091A768741F7e71',
+    // [ChainId.MODE]: '0xD4f08b675270DFD9FedAeA5E6a879a945BE80d1d', // block 3747578
+    [ChainId.MODE]: '0x6E36FC34eA123044F278d3a9F3819027B21c9c32', // block 5005167
+    [ChainId.MODE_TESTNET]: '0xB2ddE46dacFA72Ce778420aAC091A768741F7e71', // block 11339625
     [ChainId.OPTIMISM]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720', // block 124982239
     [ChainId.SONIC_TESTNET]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720', // block 75266442
     [ChainId.SONEIUM_TESTNET]: '0xe52a36Bb76e8f40e1117db5Ff14Bd1f7b058B720', // block 2735067
@@ -123,8 +113,10 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   SwapRouter: {
     [ChainId.BASE]: '0x1B8eea9315bE495187D873DA7773a874545D9D48',
     [ChainId.BASE_GOERLI]: '0x35eE2020dada758d1b8fE89D5D74F61312e9c94E',
+    [ChainId.ARBITRUM]: '0xe3dbf9367D2863b638C629a9d4Ca4C949FD7C779',
     [ChainId.SCROLL_SEPOLIA]: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB',
     [ChainId.SCROLL]: '0x7FFE23bf32053F84C72Dc686f526c584dAF5f8D6',
+    // [ChainId.MODE]: '0x6b818C5D9104BaEC4c1C1Df599527B35bcBB2520',
     [ChainId.MODE]: '0x7107112065dAF2EEedD56B06cdF185f3eFFF516D',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB',
@@ -134,9 +126,11 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   UniveralRouter: {
     [ChainId.BASE]: '0x33446f09E2a70C1C35718903c7c27f97989B33d9',
     [ChainId.BASE_GOERLI]: '0xD3b9f4fe491Ac92AD75B214cfdCb16dc412154E2',
+    [ChainId.SCROLL_SEPOLIA]: '',
     [ChainId.SCROLL]: '0xA6Fae39901858a6dD51B5068C11348305a031cdF',
-    [ChainId.MODE]: '',
+    // [ChainId.MODE]: '0x99687aD0509AbcD493D2076D78C8C3479aDd6A67',
     [ChainId.MODE_TESTNET]: '',
+    [ChainId.OPTIMISM]: '0x8A1C25a8414834b59Bc0bfEBB25fd98F18Db314e',
     [ChainId.SONIC_TESTNET]: '0xbF79915e80DE0A361A4F35175BA9bF2e91B10424',
     [ChainId.SONEIUM_TESTNET]: '0xfb926356BAf861c93C3557D7327Dbe8734A71891',
   },
@@ -148,15 +142,28 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.SONIC_TESTNET]: '0xc1e624C810D297FD70eF53B0E08F44FABE468591',
     [ChainId.SONEIUM_TESTNET]: '0x7bb14ED986Dae0C8423350A7f1C59a31b3C84509',
   },
+  MixedRouteQuoterV1: {
+    [ChainId.BASE]: '0x73eFdC8039B47207Cc718b7ADcB3D0dC8E76c082',
+    [ChainId.MODE]: '0xC6004410771E706F46d756f3a6fCE7B1Df934498',
+    [ChainId.OPTIMISM]: '',
+    [ChainId.SONEIUM_TESTNET]: '',
+  },
   V3Migrator: {
     [ChainId.BASE]: '0x596C5c71A079BddE96f940649C21a39201d4C47b',
+    [ChainId.BASE_GOERLI]: '',
+    [ChainId.SCROLL]: '',
+  },
+  Quoter: {
+    [ChainId.ARBITRUM]: '0x045917a6bfd5e836A76c8B422EFA8f7B47ce8bc0',
   },
   QuoterV2: {
     [ChainId.BASE]: '0x4fDBD73aD4B1DDde594BF05497C15f76308eFfb9',
     [ChainId.BASE_GOERLI]: '0x154184eAe9de0dcac56c804Ffee021e7F2B0B2bf',
+    [ChainId.ARBITRUM]: '0x91896495C0345dA501f59FAEd8d97b9A71056248',
     [ChainId.SCROLL_SEPOLIA]: '0x6F1a2F63Ea06B475EDBf2E6393406058C12A7910',
     [ChainId.SCROLL]: '0x2ee99Be3c520B7Bd64f51641c3e7Ef28950E03B7',
     [ChainId.MODE]: '0xA642c56a9bCd863E52348798b31A8Db2BCdA5aee',
+    // [ChainId.MODE]: '0x40c164a5c5022f25Ec41Bb96F6fAc14b15Ce99c1',
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x6F1a2F63Ea06B475EDBf2E6393406058C12A7910',
     [ChainId.SONIC_TESTNET]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
@@ -165,6 +172,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   TickLens: {
     [ChainId.BASE]: '0x49a3A5cf91DE1b78c43Dc1adD03E8A71f1Ea2e30',
     [ChainId.BASE_GOERLI]: '0x4460e525CAbF58d2E8F742482A0D228641abfAF6',
+    [ChainId.ARBITRUM]: '0xf7fe5C645e6Bd1f410447e3266A02E82c3aeefD9',
     [ChainId.SCROLL_SEPOLIA]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
     [ChainId.SCROLL]: '0xFb68BBfaEF679C1E653b5cE271a0A383c0df6B45',
     [ChainId.MODE]: '0x62e879c8979694DbC3A4EF1dd324b08Ee3Ac3688',
@@ -176,9 +184,13 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   NonfungiblePositionManager: {
     [ChainId.BASE]: '0xDe151D5c92BfAA288Db4B67c21CD55d5826bCc93',
     [ChainId.BASE_GOERLI]: '0x4c656A290161CE89538e305075098FE92bDcB5E6',
+    [ChainId.ARBITRUM]: '0x763c2e4393Ed80480D735193D57f31692Fe4504e',
+    // [ChainId.ARBITRUM]: '0x763c2e4393Ed80480D735193D57f31692Fe4504e',
+    // [ChainId.ARBITRUM]: '0x81F2c375AEDbdF02f11c1Ae125e2f51Efa777cEa', // sdk-core current address
     [ChainId.SCROLL_SEPOLIA]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9',
     [ChainId.SCROLL]: '0x396F2cA2a470EfC92511fD3e99833d28D38CFf53',
-    [ChainId.MODE]: '0xcc3726bCc27f232bC1CaAB40853AEa91ae43C216',
+    // [ChainId.MODE]: '0xd4974B38D5a4Ea2a9FA181Aa52A0336cCe5E12A0', // block 3747908
+    [ChainId.MODE]: '0xcc3726bCc27f232bC1CaAB40853AEa91ae43C216', // block 5005345
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9', // block 125278292
     [ChainId.SONIC_TESTNET]: '0x2B0A43DCcBD7d42c18F6A83F86D1a19fA58d541A', // block 75975300
@@ -204,11 +216,16 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE_TESTNET]: '',
     [ChainId.OPTIMISM]: '0x74a52eb08d699CD8BE1d42dA4B241d526B8a8285',
     [ChainId.SONIC_TESTNET]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9',
-    [ChainId.SONEIUM_TESTNET]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
+    [ChainId.SONEIUM_TESTNET]: '0x327Df1E6de05895d2ab08513aaDD9313Fe505d86',
+  },
+  PoolDeployer: {
+    [ChainId.BASE]: '0x2b62EeAA49B1b8cdFB55BA39feFf039EC87b1c37',
+    [ChainId.ARBITRUM]: '0xa3792B3678b61001839c404ffcD20EF103473f68', // defiedge thing
   },
   Permit2: {
     [ChainId.BASE]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.BASE_GOERLI]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
+    [ChainId.SCROLL_SEPOLIA]: '',
     [ChainId.SCROLL]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.MODE]: '0x94265f90728993A3f7089049045ceef566A36bB9',
     [ChainId.MODE_TESTNET]: '',
@@ -225,33 +242,74 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.SONIC_TESTNET]: '0x7FFE23bf32053F84C72Dc686f526c584dAF5f8D6',
     [ChainId.SONEIUM_TESTNET]: '0xc1e624C810D297FD70eF53B0E08F44FABE468591',
   },
-  // Camelot
+  // CAMELOT'ISH
   MasterChef: {
     [ChainId.BASE]: '0x6Fc0f134a1F20976377b259687b1C15a5d422B47',
+    [ChainId.BASE_GOERLI]: '0x1af81D2aB7e75433Bc50Cd06CD5Ec33d94D25d3F',
+    [ChainId.ARBITRUM]: '0xd2bcfd6b84e778d2de5bb6a167ecbbef5d053a06',
     [ChainId.SCROLL_SEPOLIA]: '0xbF79915e80DE0A361A4F35175BA9bF2e91B10424',
+    [ChainId.SCROLL]: '',
     [ChainId.MODE]: '0x327df1e6de05895d2ab08513aadd9313fe505d86',
     [ChainId.MODE_TESTNET]: '0x396f2ca2a470efc92511fd3e99833d28d38cff53',
   },
+
   DummyToken: {
     [ChainId.BASE]: '0x29399d824a99789f587a491C59210326e8ef4545',
+    [ChainId.ARBITRUM]: '0xA6Ca6f21d375E860a321Bc061430A4A3bA780F20',
+    [ChainId.SCROLL]: '',
+  },
+  ChefRamsey: {
+    [ChainId.BASE]: '',
+    [ChainId.ARBITRUM]: '0x282fdb7A2876Ade5C027061D6FA5D7724AE1b2e5',
   },
   NftPoolFactory: {
-    [ChainId.BASE]: '0x1d23317069d9a01b99A2B755A4Bb7528450198B8',
-    [ChainId.BASE_GOERLI]: '',
+    [ChainId.BASE]: '0x1d23317069d9a01b99A2B755A4Bb7528450198B8', // block 2756969
+    [ChainId.BASE_GOERLI]: '0x0D8769D15D550780AcF016f6fB1586e561F8C871',
+    [ChainId.ARBITRUM]: '0x3157e5aD383C36f2A27Fbc0aC2dB09Ef723ff80E',
     [ChainId.SCROLL_SEPOLIA]: '0x7FFE23bf32053F84C72Dc686f526c584dAF5f8D6',
     [ChainId.SCROLL]: '',
-    [ChainId.MODE]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9',
+    [ChainId.MODE]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9', // block 3244360
     [ChainId.MODE_TESTNET]: '0xA6Fae39901858a6dD51B5068C11348305a031cdF',
   },
+  NftPoolFactoryNoRewarder: {
+    [ChainId.ARBITRUM]: '0x623176707b60ac607Da7222384a0852FD0762230',
+    [ChainId.SCROLL]: '',
+  },
+
   YieldBooster: {
     [ChainId.BASE]: '0x0F5433c9f1c2E86588304eD09BC79AbEcc89e0de',
-    [ChainId.BASE_GOERLI]: '',
+    [ChainId.BASE_GOERLI]: '0xEb6a909e8c5eAdaFDDd7581f18a7Ed07cb4bE538',
+    [ChainId.ARBITRUM]: '0x0A05BAFA8A3CCb18748ddfD7A6D138F6243CC5a4',
     [ChainId.SCROLL_SEPOLIA]: '0xc1e624C810D297FD70eF53B0E08F44FABE468591',
+    [ChainId.SCROLL]: '',
     [ChainId.MODE]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
     [ChainId.MODE_TESTNET]: '0x4Ab974442D6e67c32E40f44BcDC22388F3F16d9e',
   },
+
   Dividends: {
+    [ChainId.BASE]: '',
     [ChainId.BASE_GOERLI]: '0x6E9776a02fF00d2D0FC986B78B64fAD7414c3B00',
     [ChainId.SCROLL_SEPOLIA]: '0x7bb14ED986Dae0C8423350A7f1C59a31b3C84509',
+    [ChainId.SCROLL]: '',
+  },
+
+  NitroPoolMinimalFactory: {
+    [ChainId.BASE]: '',
+    [ChainId.BASE_GOERLI]: '',
+    [ChainId.ARBITRUM]: '0xf6fB84414cE7AcDd3360dae16Ed0daD145f0e06b',
+  },
+
+  PythRandomGenerator: {
+    [ChainId.MODE]: '',
+    [ChainId.MODE_TESTNET]: '0x6bd025573596c02441049e2caa82f0b196f583c8',
+  },
+
+  Lottery: {
+    [ChainId.MODE]: '',
+    [ChainId.MODE_TESTNET]: '0x865654Ebe6030686bDe44708597bbb3F289ea7f1',
+  },
+
+  ModeFeeShare: {
+    [ChainId.MODE]: '0x8680CEaBcb9b56913c519c069Add6Bc3494B7020',
   },
 };
