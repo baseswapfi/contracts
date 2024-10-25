@@ -1,6 +1,38 @@
 import { ChainId } from '@baseswapfi/sdk-core';
 
-export const CONTRACTS = {
+export type ContractKey =
+  | 'Timelock'
+  | 'GasOracleL2'
+  | 'PancakeFactory'
+  | 'PancakeRouter'
+  | 'PancakeZapV1'
+  | 'PancakeMasterChef'
+  | 'Multicall'
+  | 'Multicall2'
+  | 'Multicall3'
+  | 'UniMultical'
+  | 'UniswapV3Factory'
+  | 'SwapRouter'
+  | 'UniveralRouter'
+  | 'V3Migrator'
+  | 'QuoterV2'
+  | 'TickLens'
+  | 'NonfungiblePositionManager'
+  | 'NFTDescriptorLibrary'
+  | 'NonfungibleTokenPositionDescriptor'
+  | 'Permit2'
+  | 'MasterChef'
+  | 'DummyToken'
+  | 'NftPoolFactory'
+  | 'YieldBooster'
+  | 'Dividends'
+  | 'UnsupportedProtocol'
+  | 'FeeOnTransferDetector'
+  | 'SmartChefFactory'
+  | 'MixedRouteQuoterV1'
+  | 'Lottery';
+
+export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in ChainId]?: string } } = {
   Timelock: {
     [ChainId.BASE]: '0x016E71A3e342031f2229F0b7Bf2C5d11fD2713a6',
   },
@@ -84,16 +116,16 @@ export const CONTRACTS = {
     [ChainId.SONEIUM_TESTNET]: '0x2B0A43DCcBD7d42c18F6A83F86D1a19fA58d541A',
   },
 
-  // UNI
-  ArbidexRouterV2: {
-    [ChainId.ARBITRUM]: '0x7238FB45146BD8FcB2c463Dc119A53494be57Aac',
-  },
-  ArbidexRouterV3: {
-    [ChainId.ARBITRUM]: '0xe3dbf9367D2863b638C629a9d4Ca4C949FD7C779',
-  },
-  ArbidexFactoryV2: {
-    [ChainId.ARBITRUM]: '0x1c6e968f2e6c9dec61db874e28589fd5ce3e1f2c',
-  },
+  // // UNI
+  // ArbidexRouterV2: {
+  //   [ChainId.ARBITRUM]: '0x7238FB45146BD8FcB2c463Dc119A53494be57Aac',
+  // },
+  // ArbidexRouterV3: {
+  //   [ChainId.ARBITRUM]: '0xe3dbf9367D2863b638C629a9d4Ca4C949FD7C779',
+  // },
+  // ArbidexFactoryV2: {
+  //   [ChainId.ARBITRUM]: '0x1c6e968f2e6c9dec61db874e28589fd5ce3e1f2c',
+  // },
 
   // V3
   UniswapV3Factory: {
@@ -153,9 +185,9 @@ export const CONTRACTS = {
     [ChainId.BASE_GOERLI]: '',
     [ChainId.SCROLL]: '',
   },
-  Quoter: {
-    [ChainId.ARBITRUM]: '0x045917a6bfd5e836A76c8B422EFA8f7B47ce8bc0',
-  },
+  // Quoter: {
+  //   [ChainId.ARBITRUM]: '0x045917a6bfd5e836A76c8B422EFA8f7B47ce8bc0',
+  // },
   QuoterV2: {
     [ChainId.BASE]: '0x4fDBD73aD4B1DDde594BF05497C15f76308eFfb9',
     [ChainId.BASE_GOERLI]: '0x154184eAe9de0dcac56c804Ffee021e7F2B0B2bf',
@@ -218,10 +250,10 @@ export const CONTRACTS = {
     [ChainId.SONIC_TESTNET]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9',
     [ChainId.SONEIUM_TESTNET]: '0x327Df1E6de05895d2ab08513aaDD9313Fe505d86',
   },
-  PoolDeployer: {
-    [ChainId.BASE]: '0x2b62EeAA49B1b8cdFB55BA39feFf039EC87b1c37',
-    [ChainId.ARBITRUM]: '0xa3792B3678b61001839c404ffcD20EF103473f68', // defiedge thing
-  },
+  // PoolDeployer: {
+  //   [ChainId.BASE]: '0x2b62EeAA49B1b8cdFB55BA39feFf039EC87b1c37',
+  //   [ChainId.ARBITRUM]: '0xa3792B3678b61001839c404ffcD20EF103473f68', // defiedge thing
+  // },
   Permit2: {
     [ChainId.BASE]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.BASE_GOERLI]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
@@ -258,10 +290,10 @@ export const CONTRACTS = {
     [ChainId.ARBITRUM]: '0xA6Ca6f21d375E860a321Bc061430A4A3bA780F20',
     [ChainId.SCROLL]: '',
   },
-  ChefRamsey: {
-    [ChainId.BASE]: '',
-    [ChainId.ARBITRUM]: '0x282fdb7A2876Ade5C027061D6FA5D7724AE1b2e5',
-  },
+  // ChefRamsey: {
+  //   [ChainId.BASE]: '',
+  //   [ChainId.ARBITRUM]: '0x282fdb7A2876Ade5C027061D6FA5D7724AE1b2e5',
+  // },
   NftPoolFactory: {
     [ChainId.BASE]: '0x1d23317069d9a01b99A2B755A4Bb7528450198B8', // block 2756969
     [ChainId.BASE_GOERLI]: '0x0D8769D15D550780AcF016f6fB1586e561F8C871',
@@ -270,10 +302,6 @@ export const CONTRACTS = {
     [ChainId.SCROLL]: '',
     [ChainId.MODE]: '0x78a087d713Be963Bf307b18F2Ff8122EF9A63ae9', // block 3244360
     [ChainId.MODE_TESTNET]: '0xA6Fae39901858a6dD51B5068C11348305a031cdF',
-  },
-  NftPoolFactoryNoRewarder: {
-    [ChainId.ARBITRUM]: '0x623176707b60ac607Da7222384a0852FD0762230',
-    [ChainId.SCROLL]: '',
   },
 
   YieldBooster: {
@@ -293,23 +321,13 @@ export const CONTRACTS = {
     [ChainId.SCROLL]: '',
   },
 
-  NitroPoolMinimalFactory: {
-    [ChainId.BASE]: '',
-    [ChainId.BASE_GOERLI]: '',
-    [ChainId.ARBITRUM]: '0xf6fB84414cE7AcDd3360dae16Ed0daD145f0e06b',
-  },
-
-  PythRandomGenerator: {
-    [ChainId.MODE]: '',
-    [ChainId.MODE_TESTNET]: '0x6bd025573596c02441049e2caa82f0b196f583c8',
-  },
+  // PythRandomGenerator: {
+  //   [ChainId.MODE]: '',
+  //   [ChainId.MODE_TESTNET]: '0x6bd025573596c02441049e2caa82f0b196f583c8',
+  // },
 
   Lottery: {
     [ChainId.MODE]: '',
     [ChainId.MODE_TESTNET]: '0x865654Ebe6030686bDe44708597bbb3F289ea7f1',
-  },
-
-  ModeFeeShare: {
-    [ChainId.MODE]: '0x8680CEaBcb9b56913c519c069Add6Bc3494B7020',
   },
 };
