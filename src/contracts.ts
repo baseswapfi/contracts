@@ -280,7 +280,8 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   MasterChef: {
     [ChainId.BASE]: '0x6Fc0f134a1F20976377b259687b1C15a5d422B47',
     [ChainId.BASE_GOERLI]: '0x1af81D2aB7e75433Bc50Cd06CD5Ec33d94D25d3F',
-    [ChainId.ARBITRUM]: '0xd2bcfd6b84e778d2de5bb6a167ecbbef5d053a06',
+    // [ChainId.ARBITRUM]: '0xd2bcfd6b84e778d2de5bb6a167ecbbef5d053a06', // None camelot one
+    [ChainId.ARBITRUM]: '0x282fdb7A2876Ade5C027061D6FA5D7724AE1b2e5',
     [ChainId.SCROLL_SEPOLIA]: '0xbF79915e80DE0A361A4F35175BA9bF2e91B10424',
     [ChainId.SCROLL]: '',
     [ChainId.MODE]: '0x327df1e6de05895d2ab08513aadd9313fe505d86',
