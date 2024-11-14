@@ -315,7 +315,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   YieldBooster: {
     [ChainId.BASE]: '0x0F5433c9f1c2E86588304eD09BC79AbEcc89e0de',
     [ChainId.BASE_GOERLI]: '0xEb6a909e8c5eAdaFDDd7581f18a7Ed07cb4bE538',
-    [ChainId.ARBITRUM]: '0x0A05BAFA8A3CCb18748ddfD7A6D138F6243CC5a4',
+    // [ChainId.ARBITRUM]: '0x0A05BAFA8A3CCb18748ddfD7A6D138F6243CC5a4', no boosting on Arb - likely real/deployed, but commenting out to avoid confusion
     [ChainId.SCROLL_SEPOLIA]: '0xc1e624C810D297FD70eF53B0E08F44FABE468591',
     [ChainId.SCROLL]: '',
     [ChainId.MODE]: '0x0fE9E7B39dbdfe32c9F37FAcCec6b33d290CbF50',
@@ -342,6 +342,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   TokenLocker: {
     [ChainId.BASE]: '0x4e4c89937f85bD101C7FCB273435Ed89b49ad0B0',
     [ChainId.MODE]: '0x7C0b97cD0FDc6B924129344502dd9De100A2f934',
+    [ChainId.ARBITRUM]: '0x7c0b97cd0fdc6b924129344502dd9de100a2f934', 
 
   },
 
@@ -349,6 +350,8 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
     [ChainId.MODE]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
     [ChainId.OPTIMISM]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
+    [ChainId.ARBITRUM]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
+
 
   },
 
@@ -356,6 +359,8 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.BASE]: '0x19cEeAd7105607Cd444F5ad10dd51356436095a1', 
     [ChainId.MODE]: '0x7E15EB462cdc67Cf92Af1f7102465a8F8c784874', 
     [ChainId.OPTIMISM]: '0xca423977156bb05b13a2ba3b76bc5419e2fe9680', 
+    [ChainId.ARBITRUM]: '0xa669e7A0d4b3e4Fa48af2dE86BD4CD7126Be4e13', 
+
 
   },
 };
