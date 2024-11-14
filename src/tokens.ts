@@ -103,7 +103,7 @@ export const TOKEN_CONFIGS: { [chainId in ChainId]?: TokensProps } = {
       }, 
     eth: {
       name: 'Ethereum',
-      address: '0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE',
+      address: '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee',
       symbol: 'ETH',
       decimals: 18,
       iconUrl: 'https://s2.coinmarketcap.com/static/img/coins/64x64/1027.png',
