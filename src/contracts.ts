@@ -30,7 +30,12 @@ export type ContractKey =
   | 'FeeOnTransferDetector'
   | 'SmartChefFactory'
   | 'MixedRouteQuoterV1'
-  | 'Lottery';
+  | 'Lottery'
+  | 'TokenLocker'
+  | 'MerklDistributor'
+  | 'OdosRouter';
+
+
 
 export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in ChainId]?: string } } = {
   Timelock: {
@@ -332,5 +337,25 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   Lottery: {
     [ChainId.MODE]: '',
     [ChainId.MODE_TESTNET]: '0x865654Ebe6030686bDe44708597bbb3F289ea7f1',
+  },
+  
+  TokenLocker: {
+    [ChainId.BASE]: '0x4e4c89937f85bD101C7FCB273435Ed89b49ad0B0',
+    [ChainId.MODE]: '0x7C0b97cD0FDc6B924129344502dd9De100A2f934',
+
+  },
+
+  MerklDistributor: {
+    [ChainId.BASE]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
+    [ChainId.MODE]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
+    [ChainId.OPTIMISM]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
+
+  },
+
+  OdosRouter: {
+    [ChainId.BASE]: '0x19cEeAd7105607Cd444F5ad10dd51356436095a1', 
+    [ChainId.MODE]: '0x7E15EB462cdc67Cf92Af1f7102465a8F8c784874', 
+    [ChainId.OPTIMISM]: '0xca423977156bb05b13a2ba3b76bc5419e2fe9680', 
+
   },
 };
