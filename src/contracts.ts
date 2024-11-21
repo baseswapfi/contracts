@@ -33,9 +33,8 @@ export type ContractKey =
   | 'Lottery'
   | 'TokenLocker'
   | 'MerklDistributor'
-  | 'OdosRouter';
-
-
+  | 'OdosRouter'
+  | 'TokenValidator';
 
 export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in ChainId]?: string } } = {
   Timelock: {
@@ -281,6 +280,9 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.SONIC_TESTNET]: '0x7FFE23bf32053F84C72Dc686f526c584dAF5f8D6',
     [ChainId.SONEIUM_TESTNET]: '0xc1e624C810D297FD70eF53B0E08F44FABE468591',
   },
+  TokenValidator: {
+    [ChainId.BASE]: '0xb616aA094542Cfa43655fa8059075789AB0a4Be7',
+  },
   // CAMELOT'ISH
   MasterChef: {
     [ChainId.BASE]: '0x6Fc0f134a1F20976377b259687b1C15a5d422B47',
@@ -338,12 +340,11 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '',
     [ChainId.MODE_TESTNET]: '0x865654Ebe6030686bDe44708597bbb3F289ea7f1',
   },
-  
+
   TokenLocker: {
     [ChainId.BASE]: '0x4e4c89937f85bD101C7FCB273435Ed89b49ad0B0',
     [ChainId.MODE]: '0x7C0b97cD0FDc6B924129344502dd9De100A2f934',
-    [ChainId.ARBITRUM]: '0x7c0b97cd0fdc6b924129344502dd9de100a2f934', 
-
+    [ChainId.ARBITRUM]: '0x7c0b97cd0fdc6b924129344502dd9de100a2f934',
   },
 
   MerklDistributor: {
@@ -351,16 +352,12 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.MODE]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
     [ChainId.OPTIMISM]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
     [ChainId.ARBITRUM]: '0x3Ef3D8bA38EBe18DB133cEc108f4D14CE00Dd9Ae',
-
-
   },
 
   OdosRouter: {
-    [ChainId.BASE]: '0x19cEeAd7105607Cd444F5ad10dd51356436095a1', 
-    [ChainId.MODE]: '0x7E15EB462cdc67Cf92Af1f7102465a8F8c784874', 
-    [ChainId.OPTIMISM]: '0xca423977156bb05b13a2ba3b76bc5419e2fe9680', 
-    [ChainId.ARBITRUM]: '0xa669e7A0d4b3e4Fa48af2dE86BD4CD7126Be4e13', 
-
-
+    [ChainId.BASE]: '0x19cEeAd7105607Cd444F5ad10dd51356436095a1',
+    [ChainId.MODE]: '0x7E15EB462cdc67Cf92Af1f7102465a8F8c784874',
+    [ChainId.OPTIMISM]: '0xca423977156bb05b13a2ba3b76bc5419e2fe9680',
+    [ChainId.ARBITRUM]: '0xa669e7A0d4b3e4Fa48af2dE86BD4CD7126Be4e13',
   },
 };
