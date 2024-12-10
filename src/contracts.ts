@@ -261,6 +261,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   //   [ChainId.ARBITRUM]: '0xa3792B3678b61001839c404ffcD20EF103473f68', // defiedge thing
   // },
   Permit2: {
+    [ChainId.ARBITRUM]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.BASE]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.BASE_GOERLI]: '0x000000000022D473030F116dDEE9F6B43aC78BA3',
     [ChainId.SCROLL_SEPOLIA]: '',
@@ -282,6 +283,11 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
   },
   TokenValidator: {
     [ChainId.BASE]: '0xb616aA094542Cfa43655fa8059075789AB0a4Be7',
+    [ChainId.ARBITRUM]: '',
+    [ChainId.MODE]: '',
+    [ChainId.OPTIMISM]: '',
+    [ChainId.SONIC_TESTNET]: '',
+    [ChainId.SONEIUM_TESTNET]: '',
   },
   // CAMELOT'ISH
   MasterChef: {
