@@ -162,7 +162,7 @@ export const BASESWAP_CONTRACTS: { [contract in ContractKey]: { [chainId in Chai
     [ChainId.SONEIUM_TESTNET]: '0xFDa619b6d20975be80A10332cD39b9a4b0FAa8BB',
   },
   UniveralRouter: {
-    [ChainId.BASE]: '0x33446f09E2a70C1C35718903c7c27f97989B33d9',
+    [ChainId.BASE]: '0xa3e674cc6c847802A20Eb32dabA40219A941f408',
     [ChainId.BASE_GOERLI]: '0xD3b9f4fe491Ac92AD75B214cfdCb16dc412154E2',
     [ChainId.SCROLL_SEPOLIA]: '',
     [ChainId.SCROLL]: '0xA6Fae39901858a6dD51B5068C11348305a031cdF',
